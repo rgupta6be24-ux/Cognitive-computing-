@@ -1,322 +1,352 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "a0abfbdf",
-   "metadata": {},
-   "source": [
-    "Q.1 Write a program to create a NumPy 1D-array with 5 elements and perform basic\n",
-    "operations like:\n",
-    "a) Addition of 2 in all the element\n",
-    "b) Multiply 3 with all the elements\n",
-    "c) Divide every element by 2"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "id": "26c0c244",
-   "metadata": {},
-   "outputs": [
+
+import pandas as pd
+
+# Q1: Build Personalized Knowledge Base
+
+ROLL_NO = "1024170043"
+
+# Take the last two digits
+last_two_digits = [int(d) for d in ROLL_NO[-2:]]
+print(last_two_digits)
+
+categories = ["billing", "account", "general"]
+
+fixed_entries = [
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[10 11 12 13 14]\n",
-      "[12 13 14 15 16]\n",
-      "[30 33 36 39 42]\n",
-      "[5.  5.5 6.  6.5 7. ]\n"
-     ]
-    }
-   ],
-   "source": [
-    "import numpy as np\n",
-    "array = np.array([10,11,12,13,14])\n",
-    "print(array)\n",
-    "print(array+2)\n",
-    "print(array*3)\n",
-    "print(array/2)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "46660190",
-   "metadata": {},
-   "source": [
-    "Q.2 Questions on Basic NumPy Array:\n",
-    "a) Reverse the NumPy array: arr = np.array([1, 2, 3, 6, 4, 5])\n",
-    "b) Find the most frequent value and their indice(s) in the following arrays:\n",
-    "i. x = np.array([1,2,3,4,5,1,2,1,1,1])\n",
-    "ii. y = np.array([1, 1, 1, 2, 3, 4, 2, 4, 3, 3, ])"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "a5232ab5",
-   "metadata": {},
-   "outputs": [
+        "question": "what is the annual fee",
+        "answer": "The annual fee is Rs 500.",
+        "keywords": "fee cost price charge",
+        "category": "billing"
+    },
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[5 4 6 3 2 1]\n"
-     ]
-    }
-   ],
-   "source": [
-    "array = np.array([1, 2, 3, 6, 4, 5])\n",
-    "reversed_array = array[::-1]\n",
-    "print(reversed_array)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 6,
-   "id": "5b8cd6c5",
-   "metadata": {},
-   "outputs": [
+        "question": "how to reset password",
+        "answer": "Go to Settings > Reset Password.",
+        "keywords": "password reset login",
+        "category": "account"
+    },
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "1\n",
-      "[0 5 7 8 9]\n",
-      "1\n",
-      "[0 1 2]\n"
-     ]
-    }
-   ],
-   "source": [
-    "x = np.array([1,2,3,4,5,1,2,1,1,1])\n",
-    "y = np.array([1, 1, 1, 2, 3, 4, 2, 4, 3, 3, ])\n",
-    "\n",
-    "most_freq_vals = np.argmax(np.bincount(x))\n",
-    "indices = np.where(x == most_freq_vals)[0]\n",
-    "print(most_freq_vals)\n",
-    "print(indices)\n",
-    "\n",
-    "most_freq_vals = np.argmax(np.bincount(y))\n",
-    "indices = np.where(y == most_freq_vals)[0]\n",
-    "print(most_freq_vals)\n",
-    "print(indices)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "0b5e0695",
-   "metadata": {},
-   "source": [
-    "Q.3 For the given 2-D array arr=np.array([10, 20, 30], [40, 50, 60], [70, 80, 90]), access\n",
-    "elements using row and column indices as follows:\n",
-    "a) Access 1st row, 2nd column\n",
-    "b) Access 3rd row, 1st column"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 10,
-   "id": "9049d1f9",
-   "metadata": {},
-   "outputs": [
+        "question": "what are your working hours",
+        "answer": "We are open 9 AM to 5 PM.",
+        "keywords": "hours timing open time",
+        "category": "general"
+    },
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "20\n",
-      "70\n"
-     ]
+        "question": "how can i pay the fee",
+        "answer": "You can pay via UPI, card, or net banking.",
+        "keywords": "pay payment upi fee",
+        "category": "billing"
     }
-   ],
-   "source": [
-    "arr  = np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]])\n",
-    "print(arr[0,1])\n",
-    "print(arr[2,0])"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "f2167401",
-   "metadata": {},
-   "source": [
-    "Q.4 Write program to create an 1-D NumPy array named <<Your Name>> with evenly\n",
-    "spaced 25 numbers from 10 to 100 using linspace(). Print the dimensions of the array,\n",
-    "shape, total elements, the data type of each element and total number of bytes consumed\n",
-    "by the array. Find the transpose of this array using reshape() attribute. Can we do the same\n",
-    "with T attribute?"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "id": "cb9cd5eb",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Array:\n",
-      "[ 10.    13.75  17.5   21.25  25.    28.75  32.5   36.25  40.    43.75\n",
-      "  47.5   51.25  55.    58.75  62.5   66.25  70.    73.75  77.5   81.25\n",
-      "  85.    88.75  92.5   96.25 100.  ]\n",
-      "\n",
-      "Dimensions: 1\n",
-      "Shape: (25,)\n",
-      "Total elements: 25\n",
-      "Data type: float64\n",
-      "Total bytes consumed: 200\n",
-      "\n",
-      "Transpose using reshape():\n",
-      "[[ 10.  ]\n",
-      " [ 13.75]\n",
-      " [ 17.5 ]\n",
-      " [ 21.25]\n",
-      " [ 25.  ]\n",
-      " [ 28.75]\n",
-      " [ 32.5 ]\n",
-      " [ 36.25]\n",
-      " [ 40.  ]\n",
-      " [ 43.75]\n",
-      " [ 47.5 ]\n",
-      " [ 51.25]\n",
-      " [ 55.  ]\n",
-      " [ 58.75]\n",
-      " [ 62.5 ]\n",
-      " [ 66.25]\n",
-      " [ 70.  ]\n",
-      " [ 73.75]\n",
-      " [ 77.5 ]\n",
-      " [ 81.25]\n",
-      " [ 85.  ]\n",
-      " [ 88.75]\n",
-      " [ 92.5 ]\n",
-      " [ 96.25]\n",
-      " [100.  ]]\n",
-      "\n",
-      "Transpose using T:\n",
-      "[ 10.    13.75  17.5   21.25  25.    28.75  32.5   36.25  40.    43.75\n",
-      "  47.5   51.25  55.    58.75  62.5   66.25  70.    73.75  77.5   81.25\n",
-      "  85.    88.75  92.5   96.25 100.  ]\n"
-     ]
-    }
-   ],
-   "source": [
-    "import numpy as np\n",
-    "\n",
-    "rishi" = np.linspace(10, 100, 25)\n",
-    "\n",
-    "print(\"Array:\")\n",
-    "print(rishi)\n",
-    "\n",
-    "print(\"\\nDimensions:\", rishi.ndim)\n",
-    "print(\"Shape:\", rishi.shape)\n",
-    "print(\"Total elements:\", rishi.size)\n",
-    "print(\"Data type:\", rishi.dtype)\n",
-    "print(\"Total bytes consumed:\", rishi.nbytes)\n",
-    "\n",
-    "transpose = rishi.reshape(25, 1)\n",
-    "print(\"\\nTranspose using reshape():\")\n",
-    "print(transpose)\n",
-    "\n",
-    "print(\"\\nTranspose using T:\")\n",
-    "print(rishi.T)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "c10503fe",
-   "metadata": {},
-   "source": [
-    "Q5. Create a 2-D Array of three rows and four columns, named ucs420_<your_name>>\n",
-    "with following values – 10, 20, 30, 40, 50, 60, 70, 80, 90, 15, 20, 35. Compute the mean,\n",
-    "median, max, min, unique elements. Reshape the array to four rows and three columns and\n",
-    "name it as reshaped_ ucs420_<your_name>>. Resize the array to two rows and three\n",
-    "columns and name it as resized_ ucs420_<your_name>>."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 12,
-   "id": "83c704f3",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Original Array:\n",
-      "[[10 20 30 40]\n",
-      " [50 60 70 80]\n",
-      " [90 15 20 35]]\n",
-      "\n",
-      "Mean: 43.333333333333336\n",
-      "Median: 37.5\n",
-      "Maximum: 90\n",
-      "Minimum: 10\n",
-      "Unique Elements: [10 15 20 30 35 40 50 60 70 80 90]\n",
-      "\n",
-      "Reshaped Array (4 x 3):\n",
-      "[[10 20 30]\n",
-      " [40 50 60]\n",
-      " [70 80 90]\n",
-      " [15 20 35]]\n",
-      "\n",
-      "Resized Array (2 x 3):\n",
-      "[[10 20 30]\n",
-      " [40 50 60]]\n"
-     ]
-    }
-   ],
-   "source": [
-    "import numpy as np\n",
-    "\n",
-    "ucs420_rishi = np.array([\n",
-    "    [10, 20, 30, 40],\n",
-    "    [50, 60, 70, 80],\n",
-    "    [90, 15, 20, 35]\n",
-    "])\n",
-    "\n",
-    "print(\"Original Array:\")\n",
-    "print(ucs420_rishi)\n",
-    "\n",
-    "print(\"\\nMean:\", np.mean(ucs420_rishi))\n",
-    "print(\"Median:\", np.median(ucs420_rishi))\n",
-    "print(\"Maximum:\", np.max(ucs420_rishi))\n",
-    "print(\"Minimum:\", np.min(ucs420_rishi))\n",
-    "print(\"Unique Elements:\", np.unique(ucs420_rishi))\n",
-    "\n",
-    "reshaped_ucs420_rishi = ucs420_rishi.reshape(4, 3)\n",
-    "\n",
-    "print(\"\\nReshaped Array (4 x 3):\")\n",
-    "print(reshaped_ucs420_rishi)\n",
-    "\n",
-    "resized_ucs420_rishi = np.resize(ucs420_rishi, (2, 3))\n",
-    "\n",
-    "print(\"\\nResized Array (2 x 3):\")\n",
-    "print(resized_ucs420_rishi)"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.6"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+]
+
+# Personalized entries
+personalized_entries = []
+
+for d in last_two_digits:
+    category = categories[d % 3]
+
+    if category == "billing":
+        question = "how can i check my payment status"
+        answer = "You can check your payment status from the Billing section."
+        keywords = "payment status transaction billing"
+
+    elif category == "account":
+        question = "how do i update my registered mobile number"
+        answer = "Go to Account Settings and update your registered mobile number."
+        keywords = "mobile number update account"
+
+    else:
+        question = "how can i contact customer support"
+        answer = "You can contact customer support through the Help section."
+        keywords = "support help contact"
+
+    personalized_entries.append({
+        "question": question,
+        "answer": answer,
+        "keywords": keywords,
+        "category": category
+    })
+
+# Combine fixed + personalized entries
+all_entries = fixed_entries + personalized_entries
+
+df = pd.DataFrame(all_entries)
+
+print("Q1: Final 6-row DataFrame")
+print(df)
+print()
+
+# Q2: Generate and Score a Hypothesis
+
+def score_query(query, df):
+    query_words = set(query.lower().split())
+
+    results = []
+
+    for index, row in df.iterrows():
+
+        # Convert keywords into individual words
+        keyword_words = set(row["keywords"].lower().split())
+
+        # Count matching words
+        matches = query_words.intersection(keyword_words)
+
+        # Confidence score
+        score = len(matches)
+
+        if score > 0:
+            results.append({
+                "index": index,
+                "question": row["question"],
+                "answer": row["answer"],
+                "category": row["category"],
+                "score": score,
+                "matched_keywords": ", ".join(matches)
+            })
+
+    # Sort highest score first
+    results.sort(key=lambda x: x["score"], reverse=True)
+
+    return results
+
+
+query = "fee payment"
+
+print("Q2: Scoring query:", query)
+
+results = score_query(query, df)
+
+for result in results:
+    print(result)
+
+print()
+
+# Q3: same_category(category_name, df)
+
+def same_category(category_name, df):
+    return df[df["category"].str.lower() == category_name.lower()]
+
+
+# Use the category of the first personalized entry
+personalized_category = personalized_entries[0]["category"]
+
+print("Q3: Entries belonging to category:", personalized_category)
+
+category_result = same_category(personalized_category, df)
+
+print(category_result)
+print()
+
+# Q4: Add a new keyword and save CSV
+
+print("Q4: Current knowledge base")
+print(df)
+
+# Pick the first entry
+entry_index = 0
+
+new_keyword = input("Enter a new keyword to add to the first FAQ entry: ")
+
+# Add the new keyword
+df.loc[entry_index, "keywords"] = (
+    df.loc[entry_index, "keywords"] + " " + new_keyword
+)
+
+# Save the complete updated DataFrame
+filename = ROLL_NO + "_faq_data.csv"
+
+df.to_csv(filename, index=False)
+
+print("\nUpdated entry:")
+print(df.loc[entry_index])
+
+print("\nEntire DataFrame saved to:", filename)
+print()
+
+# Q5: Count FAQ entries per category using groupby
+
+print("Q5: Number of FAQ entries per category")
+
+category_counts = df.groupby("category").size()
+
+print(category_counts)
+print()
+
+# Q6: Modified scoring function with tie handling
+
+def score_query_with_ties(query, df):
+
+    query_words = set(query.lower().split())
+
+    results = []
+
+    for index, row in df.iterrows():
+
+        keyword_words = set(row["keywords"].lower().split())
+
+        matches = query_words.intersection(keyword_words)
+
+        score = len(matches)
+
+        if score > 0:
+            results.append({
+                "index": index,
+                "question": row["question"],
+                "answer": row["answer"],
+                "category": row["category"],
+                "score": score,
+                "matched_keywords": ", ".join(matches)
+            })
+
+    if not results:
+        print("No matching entries found.")
+        return
+
+    # Highest score
+    highest_score = max(result["score"] for result in results)
+
+    # Get ALL entries having highest score
+    best_matches = [
+        result for result in results
+        if result["score"] == highest_score
+    ]
+
+    print("\nQuery:", query)
+    print("Highest confidence score:", highest_score)
+
+    if len(best_matches) > 1:
+        print("TIE DETECTED! Multiple equally good matches:\n")
+    else:
+        print("Unique best match:\n")
+
+    for result in best_matches:
+        print("Question:", result["question"])
+        print("Answer:", result["answer"])
+        print("Category:", result["category"])
+        print("Score:", result["score"])
+        print("Matched keywords:", result["matched_keywords"])
+        print("-" * 50)
+
+
+# Q6 Demo 1
+
+score_query_with_ties("fee", df)
+
+# Q6 Demo 2
+
+score_query_with_ties("password", df)
+[5, 5]
+Q1: Final 6-row DataFrame
+                             question  \
+0              what is the annual fee   
+1               how to reset password   
+2         what are your working hours   
+3               how can i pay the fee   
+4  how can i contact customer support   
+5  how can i contact customer support   
+
+                                              answer                keywords  \
+0                          The annual fee is Rs 500.   fee cost price charge   
+1                   Go to Settings > Reset Password.    password reset login   
+2                          We are open 9 AM to 5 PM.  hours timing open time   
+3         You can pay via UPI, card, or net banking.     pay payment upi fee   
+4  You can contact customer support through the H...    support help contact   
+5  You can contact customer support through the H...    support help contact   
+
+  category  
+0  billing  
+1  account  
+2  general  
+3  billing  
+4  general  
+5  general  
+
+Q2: Scoring query: fee payment
+{'index': 3, 'question': 'how can i pay the fee', 'answer': 'You can pay via UPI, card, or net banking.', 'category': 'billing', 'score': 2, 'matched_keywords': 'fee, payment'}
+{'index': 0, 'question': 'what is the annual fee', 'answer': 'The annual fee is Rs 500.', 'category': 'billing', 'score': 1, 'matched_keywords': 'fee'}
+
+Q3: Entries belonging to category: general
+                             question  \
+2         what are your working hours   
+4  how can i contact customer support   
+5  how can i contact customer support   
+
+                                              answer                keywords  \
+2                          We are open 9 AM to 5 PM.  hours timing open time   
+4  You can contact customer support through the H...    support help contact   
+5  You can contact customer support through the H...    support help contact   
+
+  category  
+2  general  
+4  general  
+5  general  
+
+Q4: Current knowledge base
+                             question  \
+0              what is the annual fee   
+1               how to reset password   
+2         what are your working hours   
+3               how can i pay the fee   
+4  how can i contact customer support   
+5  how can i contact customer support   
+
+                                              answer                keywords  \
+0                          The annual fee is Rs 500.   fee cost price charge   
+1                   Go to Settings > Reset Password.    password reset login   
+2                          We are open 9 AM to 5 PM.  hours timing open time   
+3         You can pay via UPI, card, or net banking.     pay payment upi fee   
+4  You can contact customer support through the H...    support help contact   
+5  You can contact customer support through the H...    support help contact   
+
+  category  
+0  billing  
+1  account  
+2  general  
+3  billing  
+4  general  
+5  general  
+Enter a new keyword to add to the first FAQ entry:  billing
+Updated entry:
+question           what is the annual fee
+answer          The annual fee is Rs 500.
+keywords    fee cost price charge billing
+category                          billing
+Name: 0, dtype: str
+
+Entire DataFrame saved to: 1024170255_faq_data.csv
+
+Q5: Number of FAQ entries per category
+category
+account    1
+billing    2
+general    3
+dtype: int64
+
+
+Query: fee
+Highest confidence score: 1
+TIE DETECTED! Multiple equally good matches:
+
+Question: what is the annual fee
+Answer: The annual fee is Rs 500.
+Category: billing
+Score: 1
+Matched keywords: fee
+--------------------------------------------------
+Question: how can i pay the fee
+Answer: You can pay via UPI, card, or net banking.
+Category: billing
+Score: 1
+Matched keywords: fee
+--------------------------------------------------
+
+Query: password
+Highest confidence score: 1
+Unique best match:
+
+Question: how to reset password
+Answer: Go to Settings > Reset Password.
+Category: account
+Score: 1
+Matched keywords: password
+--------------------------------------------------
+ 
